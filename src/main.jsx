@@ -6,11 +6,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AuthProvider from "./authentication/AuthProvider.jsx";
 import Login from "./authentication/Login.jsx";
 import Register from "./authentication/Register.jsx";
+import ErrorPage from "./ErrorPage.jsx";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
