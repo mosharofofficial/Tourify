@@ -1,0 +1,78 @@
+import { Link, NavLink } from "react-router-dom";
+import userImg from "../assets/user.png";
+import { useContext } from "react";
+import { authContext } from "../authentication/AuthProvider";
+
+// import PropTypes from "prop-types";
+
+const Navbar = () => {
+  const links = (
+    <>
+      <li>
+        <NavLink to={"/home"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/allSpot"}>All Tourist Spots</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/addSpot"}>Add Tourist Spot</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/myList"}>My List</NavLink>
+      </li>
+    </>
+  );
+
+  const { user } = useContext(authContext);
+
+  return (
+    <div className="navbar min-w-[400px] max-w-[1280px] mx-auto w-[90vw]">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-yellow rounded-box w-52 font-bold text-black gap-1"
+          >
+            {links}
+          </ul>
+        </div>
+        <a className="btn btn-ghost text-xl">Tourify</a>
+      </div>
+      <div className="navbar-center hidden md:flex">
+        <ul className="menu menu-horizontal px-1 font-bold text-balck gap-1">{links}</ul>
+      </div>
+      <div className="navbar-end gap-2">
+        {user ? (
+          <>
+            <img src={userImg} className="size-8 bg-yellow rounded-full" />
+            <button className="button">Logout</button>
+          </>
+        ) : (
+          <Link to={"/login"}>
+            <button className="button">Login</button>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// Navbar.propTypes = {};
+
+export default Navbar;
