@@ -47,7 +47,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-yellow rounded-box w-52 font-bold text-black gap-1"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-yellow rounded-box w-52 font-bold text-black gap-1  border-2 border-black"
           >
             {links}
           </ul>
@@ -59,17 +59,21 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end gap-2">
-
+      <div className="navbar-end gap-1">
         {user ? (
           <>
-            <img src={userImg} className="size-8 bg-yellow rounded-full" />
-            <button className="button">Logout</button>
+            <img src={userImg} className="size-10 bg-yellow rounded-full" />
+            <button className="button text-xl">Logout</button>
           </>
         ) : (
-          <Link to={"/login"}>
-            <button className="button">Login</button>
-          </Link>
+          <>
+            <Link to={"/login"}>
+              <button className="button text-xl">Login</button>
+            </Link>
+            <Link to={"/register"}>
+              <button className="button text-xl">Register</button>
+            </Link>
+          </>
         )}
       </div>
     </div>

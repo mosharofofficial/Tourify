@@ -10,6 +10,10 @@
   color: white;
 }
 
+.navbar ul li a {
+  padding: 8px 10px
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -6,14 +6,14 @@ function App() {
   return (
     <>
       <header className="">
-        <nav className=" bg-yellow">
+        <nav className=" bg-yellow border-b-2 border-black">
           <Navbar></Navbar>
         </nav>
       </header>
-      <main>
+      <main className="min-h-[500px] h-[calc(100vh-474px)]">
         <Outlet></Outlet>
       </main>
-      <footer>
+      <footer className="border-t-2 border-black">
         <Footer></Footer>
       </footer>
     </>

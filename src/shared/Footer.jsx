@@ -3,14 +3,14 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-yellow font-bold min-w-[400px] max-w-[1280px] ">
+    <div className="bg-yellow font-bold  ">
       <h2 className="text-center text-4xl font-bold border-b-2 border-black py-3 mb-2">
         Tourify
       </h2>
       <div className=" border-b-2 border-black py-3">
         <div className="w-[350px]  mx-auto ">
           <p className="text-center font-bold">
-            Stay in the loop with our latest travel tips, destination
+            Get our latest travel tips, destination
             highlights, and exclusive deals by subscribing to our{" "}
             <span className="text-2xl bg-black text-white px-2">
               {" "}

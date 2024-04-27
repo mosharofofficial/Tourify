@@ -2,7 +2,7 @@
 
 const Login = () => {
     return (
-        <div className="h-[50vh]">
+        <div className="">
             hi
         </div>
     );
