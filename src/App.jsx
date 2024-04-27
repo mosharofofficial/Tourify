@@ -1,13 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./shared/Navbar";
-import { useContext } from "react";
-import AuthProvider, { authContext } from "./authentication/AuthProvider";
 import Footer from "./shared/Footer";
 
 function App() {
   return (
     <>
-      <header>
+      <header className="">
         <nav className=" bg-yellow">
           <Navbar></Navbar>
         </nav>

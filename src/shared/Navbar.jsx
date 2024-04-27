@@ -8,16 +8,16 @@ import { authContext } from "../authentication/AuthProvider";
 const Navbar = () => {
   const links = (
     <>
-      <li>
+      <li className="">
         <NavLink to={"/home"}>Home</NavLink>
       </li>
-      <li>
+      <li className="">
         <NavLink to={"/allSpot"}>All Tourist Spots</NavLink>
       </li>
-      <li>
+      <li className="">
         <NavLink to={"/addSpot"}>Add Tourist Spot</NavLink>
       </li>
-      <li>
+      <li className="">
         <NavLink to={"/myList"}>My List</NavLink>
       </li>
     </>
@@ -26,7 +26,7 @@ const Navbar = () => {
   const { user } = useContext(authContext);
 
   return (
-    <div className="navbar min-w-[400px] max-w-[1280px] mx-auto w-[90vw]">
+    <div className="navbar min-w-[400px] max-w-[1280px] mx-auto w-[90vw] ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -52,12 +52,15 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Tourify</a>
+        <a className="btn btn-ghost text-3xl">Tourify</a>
       </div>
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 font-bold text-balck gap-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 font-bold text-balck gap-1 ">
+          {links}
+        </ul>
       </div>
       <div className="navbar-end gap-2">
+
         {user ? (
           <>
             <img src={userImg} className="size-8 bg-yellow rounded-full" />
