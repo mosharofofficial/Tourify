@@ -12,7 +12,7 @@ const ErrorPage = () => {
       </span>
       <div className="flex flex-col items-center justify-center ">
         <h1 className="text-2xl mb-4 font-bold">Page Not Found</h1>
-        <button onClick={()=>navigate(-1)} className="button text-2xl">Go Back</button>
+        <button onClick={()=>navigate('/')} className="button text-2xl">Go Back</button>
       </div>
     </div>
   );
