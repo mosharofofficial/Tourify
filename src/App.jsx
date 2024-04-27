@@ -13,7 +13,7 @@ function App() {
       <main className="min-h-[500px] ">
         <Outlet></Outlet>
       </main>
-      <footer className="border-t-2 border-black">
+      <footer className="border-y-2 border-black">
         <Footer></Footer>
       </footer>
     </>

@@ -1,21 +1,32 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { auth } from "./firebase.config";
+import { auth } from "../../firebase.config";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
 
 export const authContext = createContext(null);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  const githubLogin = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -35,15 +46,26 @@ const AuthProvider = ({children}) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const githubLogin = () => {
-    return signInWithPopup(auth, githubProvider);
+  const logout = () => {
+    return signOut(auth);
   };
 
-  const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
+  const update = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
-  const provide = { user, register, login, githubLogin, googleLogin };
+  const provide = {
+    user,
+    register,
+    login,
+    githubLogin,
+    googleLogin,
+    logout,
+    update,
+  };
 
   return (
     <div>

@@ -1,15 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
-import userImg from "../assets/user.png";
 import { useContext } from "react";
 import { authContext } from "../authentication/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 // import PropTypes from "prop-types";
 
 const Navbar = () => {
+  const { user, logout } = useContext(authContext);
+
+  const handleLogout = () => {
+    logout().catch((e) => console.log(e.message));
+  };
+
   const links = (
     <>
       <li className="">
-        <NavLink to={"/home"}>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li className="">
         <NavLink to={"/allSpot"}>All Tourist Spots</NavLink>
@@ -23,7 +29,6 @@ const Navbar = () => {
     </>
   );
 
-  const { user } = useContext(authContext);
 
   return (
     <div className="navbar min-w-[400px] max-w-[1280px] mx-auto w-[90vw] ">
@@ -62,8 +67,18 @@ const Navbar = () => {
       <div className="navbar-end gap-1">
         {user ? (
           <>
-            <img src={userImg} className="size-10 bg-yellow rounded-full" />
-            <button className="button text-xl">Logout</button>
+            <a className="my-anchor-element">
+              <img
+                src={user.photoURL}
+                className="size-10 bg-yellow rounded-full border-2 border-black"
+              />
+            </a>
+            <Tooltip anchorSelect=".my-anchor-element" place="bottom">
+              {user.displayName}
+            </Tooltip>
+            <button className="button text-xl" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
           <>
