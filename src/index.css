@@ -14,6 +14,12 @@
   padding: 8px 10px
 }
 
+p.registerLink:hover  {
+  background-color: black;
+  color: white;
+  
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

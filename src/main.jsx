@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AuthProvider from "./authentication/AuthProvider.jsx";
 import Login from "./authentication/Login.jsx";
+import Register from "./authentication/Register.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/register",
+        element: <Register></Register>
       },
       {
         path: "addSpot",

@@ -10,7 +10,7 @@ function App() {
           <Navbar></Navbar>
         </nav>
       </header>
-      <main className="min-h-[500px] h-[calc(100vh-474px)]">
+      <main className="min-h-[500px] ">
         <Outlet></Outlet>
       </main>
       <footer className="border-t-2 border-black">
