@@ -6,6 +6,9 @@ export default {
       colors: {
         yellow: "#ffd700",
       },
+      screens: {
+        customMd: "840px",
+      },
     },
   },
   plugins: [require("daisyui")],

@@ -20,6 +20,15 @@ p.registerLink:hover  {
   
 }
 
+.swiper-button-next::after,.swiper-button-prev::after{
+color: yellow;
+}
+
+
+.bannerTitle {
+  text-shadow: 0px 0px 3px black;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

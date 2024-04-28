@@ -10,10 +10,9 @@ const Footer = () => {
       <div className=" border-b-2 border-black py-3">
         <div className="w-[350px]  mx-auto ">
           <p className="text-center font-bold">
-            Get our latest travel tips, destination
-            highlights, and exclusive deals by subscribing to our{" "}
+            Get our latest travel tips, destination highlights, and exclusive
+            deals by subscribing to our{" "}
             <span className="text-2xl bg-black text-white px-2">
-              {" "}
               newsletter!
             </span>
           </p>

@@ -31,9 +31,9 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar min-w-[400px] max-w-[1280px] mx-auto w-[90vw] ">
+    <div className="navbar min-w-[400px] max-w-[1280px] mx-auto customMd:w-[90vw] ">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-10">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"

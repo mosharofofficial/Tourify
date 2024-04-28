@@ -7,6 +7,7 @@ import AuthProvider from "./authentication/AuthProvider.jsx";
 import Login from "./authentication/Login.jsx";
 import Register from "./authentication/Register.jsx";
 import ErrorPage from "./ErrorPage.jsx";
+import Home from "./homePage/Home.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>hi</div>
+        element: <Home></Home>
       },
       {
         path: "/login",
