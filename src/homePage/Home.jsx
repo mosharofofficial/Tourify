@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Banner from "./Banner";
 import TypeWriter from "./TypeWriter";
 import Offers from "./Offers";
+import Draw from "./Draw";
 
 const Home = () => {
 
@@ -23,6 +24,9 @@ const Home = () => {
 
       <div className="my-10">
         <Offers></Offers>
+      </div>
+      <div className="my-10 bg-yellow p-5 rounded-xl border-2 border-black">
+        <Draw></Draw>
       </div>
     </div>
   );
