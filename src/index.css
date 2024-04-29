@@ -29,6 +29,14 @@ color: yellow;
   text-shadow: 0px 0px 3px black;
 }
 
+body {
+  background-color: #fff;
+}
+
+.offerContainer .offerBox:last-child img{
+  border-bottom-right-radius: .75rem;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

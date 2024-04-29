@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Banner from "./Banner";
 import TypeWriter from "./TypeWriter";
+import Offers from "./Offers";
 
 const Home = () => {
 
@@ -18,6 +19,10 @@ const Home = () => {
         <div className="absolute top-[60%] left-[calc(50%-156px)] md:left-[calc(50%-234px)] lg:left-[calc(50%-376px)] z-[5] text-xl h-ful w-full md:text-3xl lg:text-5xl font-bold max-w-[325px] md:max-w-[500px] lg:max-w-[800px] ">
           <TypeWriter></TypeWriter>
         </div>
+      </div>
+
+      <div className="my-10">
+        <Offers></Offers>
       </div>
     </div>
   );
