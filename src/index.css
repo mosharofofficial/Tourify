@@ -37,6 +37,15 @@ body {
   border-bottom-right-radius: .75rem;
 }
 
+.addSpot .input input {
+  background-color: black;
+}
+
+label.input:focus, label.input:focus-within {
+  outline: none;
+  border-color:transparent;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

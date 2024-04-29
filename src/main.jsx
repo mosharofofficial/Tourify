@@ -8,6 +8,7 @@ import Login from "./authentication/Login.jsx";
 import Register from "./authentication/Register.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Home from "./homePage/Home.jsx";
+import AddSpot from "./addTouristSpot/AddSpot.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "addSpot",
+        element: <AddSpot></AddSpot>
       },
       {
         path: "/allSpots",
