@@ -9,6 +9,7 @@ import Register from "./authentication/Register.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import Home from "./homePage/Home.jsx";
 import AddSpot from "./addTouristSpot/AddSpot.jsx";
+import PrivateRouteProvider from "./PrivateRoute/PrivateRouteProvider.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -18,19 +19,23 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
       },
       {
         path: "addSpot",
-        element: <AddSpot></AddSpot>
+        element: (
+          <PrivateRouteProvider>
+            <AddSpot></AddSpot>
+          </PrivateRouteProvider>
+        ),
       },
       {
         path: "/allSpots",
@@ -55,6 +60,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={routes}></RouterProvider>
-  </AuthProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

@@ -33,9 +33,7 @@ body {
   background-color: #fff;
 }
 
-.offerContainer .offerBox:last-child img{
-  border-bottom-right-radius: .75rem;
-}
+
 
 .addSpot .input input {
   background-color: black;

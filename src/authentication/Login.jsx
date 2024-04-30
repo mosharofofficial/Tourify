@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "./AuthProvider";
 import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { login, githubLogin, googleLogin } = useContext(authContext);
+
+  const { state } = useLocation();
+
+  const navigate = useNavigate();
+
+  const goto = state || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +37,7 @@ const Login = () => {
           theme: "light",
         });
       })
+      .then(() => navigate(goto))
       .catch((e) => {
         if (e.code === "auth/invalid-credential") {
           toast.error("invalid credentials !", {
