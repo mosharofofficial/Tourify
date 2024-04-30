@@ -33,6 +33,7 @@ const AddSpot = () => {
     const user_name = form.name.value;
     // console.log(name);
 
+
     const newSpot = {
       image,
       tourists_spot_name,
@@ -46,7 +47,7 @@ const AddSpot = () => {
       user_email,
       user_name,
     };
-    // console.log(newSpot);
+    console.log(newSpot);
 
     fetch("http://localhost:5000/spots", {
       method: "POST",

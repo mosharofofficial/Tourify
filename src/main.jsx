@@ -10,6 +10,7 @@ import ErrorPage from "./ErrorPage.jsx";
 import Home from "./homePage/Home.jsx";
 import AddSpot from "./addTouristSpot/AddSpot.jsx";
 import PrivateRouteProvider from "./PrivateRoute/PrivateRouteProvider.jsx";
+import AllSpots from "./allTouristSpots/AllSpots.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -39,6 +40,8 @@ const routes = createBrowserRouter([
       },
       {
         path: "/allSpots",
+        element: <AllSpots></AllSpots>,
+        loader: () => fetch("http://localhost:5000/spots"),
       },
       {
         path: "/details/:id",

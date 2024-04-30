@@ -15,10 +15,10 @@ const Navbar = () => {
   const links = (
     <>
       <li className="">
-        <NavLink  to={"/"}>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li className="">
-        <NavLink to={"/allSpot"}>All Tourist Spots</NavLink>
+        <NavLink to={"/allSpots"}>All Tourist Spots</NavLink>
       </li>
       <li className="">
         <NavLink to={"/addSpot"}>Add Tourist Spot</NavLink>
@@ -28,7 +28,6 @@ const Navbar = () => {
       </li>
     </>
   );
-
 
   return (
     <div className="navbar min-w-[400px] max-w-[1280px] mx-auto customMd:w-[90vw] ">
@@ -57,7 +56,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl">Tourify</a>
+        <Link to={"/"}>
+          <div className="btn btn-ghost text-3xl">Tourify</div>
+        </Link>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1 font-bold text-balck gap-1 ">
