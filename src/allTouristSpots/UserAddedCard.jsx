@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const SpotCard = ({ spotData }) => {
+const UserAddedCard = ({ spotData }) => {
   const {
     tourists_spot_name,
     image,
@@ -12,6 +13,7 @@ const SpotCard = ({ spotData }) => {
 
   return (
     <div className="bg-yellow  border-2 border-black rounded-xl col-span-1 flex flex-col justify-between ">
+      {console.log(tourists_spot_name)}
       <div>
         <h1 className="text-xl font-bold border-b-2 border-black p-2 ">
           {tourists_spot_name}
@@ -22,20 +24,24 @@ const SpotCard = ({ spotData }) => {
         />
         <div className="p-2 border-t-2 border-black flex flex-col gap-2">
           <h3 className="font-bold text-lg">Average Cost: {average_cost}</h3>
-          <h3 className="font-bold text-lg">Visitors Per Year: {totalVisitorsPerYear}</h3>
+          <h3 className="font-bold text-lg">
+            Visitors Per Year: {totalVisitorsPerYear}
+          </h3>
           <h3 className="font-bold text-lg">Travel Time: {travel_time}</h3>
           <h3 className="font-bold text-lg">Seasonality: {seasonality}</h3>
         </div>
       </div>
       <div className="p-2 self-center">
-        <button className="button ">View Details</button>
+        <Link to={`/userAdded/${tourists_spot_name}`}>
+          <button className="button ">View Details</button>
+        </Link>
       </div>
     </div>
   );
 };
 
-SpotCard.propTypes = {
+UserAddedCard.propTypes = {
   spotData: PropTypes.object,
 };
 
-export default SpotCard;
+export default UserAddedCard;

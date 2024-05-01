@@ -8,7 +8,7 @@ const PrivateRouteProvider = ({ children }) => {
   const {pathname} = useLocation();
 
     const {user} = useContext(authContext);
-    console.log(pathname);
+    // console.log(pathname);
 
     if (user) {
          return <>{children}</>;

@@ -2,7 +2,7 @@
 // import { authContext } from "../authentication/AuthProvider";
 
 const AddSpot = () => {
-  // const {user} = useContext(authContext);
+  // const { user } = useContext(authContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,28 +11,16 @@ const AddSpot = () => {
     const form = e.target;
 
     const image = form.imageURL.value;
-    // console.log(image);
     const tourists_spot_name = form.spotName.value;
-    // console.log(tourists_spot_name);
     const country_Name = form.countryName.value;
-    // console.log(country_Name);
     const location = form.location.value;
-    // console.log(location);
     const short_description = form.shortDescription.value;
-    // console.log(short_description);
     const average_cost = form.averageCost.value;
-    // console.log(average_cost);
     const seasonality = form.seasonality.value;
-    // console.log(seasonality);
     const travel_time = form.travelTime.value;
-    // console.log(travel_time);
     const tota_visitors_per_year = form.visitorsPerYear.value;
-    // console.log(tota_visitors_per_year);
     const user_email = form.email.value;
-    // console.log(user_email);
     const user_name = form.name.value;
-    // console.log(name);
-
 
     const newSpot = {
       image,
@@ -49,7 +37,7 @@ const AddSpot = () => {
     };
     console.log(newSpot);
 
-    fetch("http://localhost:5000/spots", {
+    fetch(`http://localhost:5000/userAdded`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,9 +45,8 @@ const AddSpot = () => {
       body: JSON.stringify(newSpot),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e.message));
   };
 
   return (

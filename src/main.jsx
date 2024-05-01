@@ -10,7 +10,9 @@ import ErrorPage from "./ErrorPage.jsx";
 import Home from "./homePage/Home.jsx";
 import AddSpot from "./addTouristSpot/AddSpot.jsx";
 import PrivateRouteProvider from "./PrivateRoute/PrivateRouteProvider.jsx";
-import AllSpots from "./allTouristSpots/AllSpots.jsx";
+import AllSpots from "./allTouristSpots/AllUserAddedSpots.jsx";
+import Details from "./allTouristSpots/Details.jsx";
+import UserAddedDetails from "./allTouristSpots/userAddedDetails.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -41,10 +43,23 @@ const routes = createBrowserRouter([
       {
         path: "/allSpots",
         element: <AllSpots></AllSpots>,
-        loader: () => fetch("http://localhost:5000/spots"),
+        // loader: () => fetch("http://localhost:5000/spots"),
       },
       {
-        path: "/details/:id",
+        path: "/details/:spotName",
+        element: (
+          <PrivateRouteProvider>
+            <Details></Details>
+          </PrivateRouteProvider>
+        ),
+      },
+      {
+        path: "/userAdded/:spotName",
+        element: (
+          <PrivateRouteProvider>
+            <UserAddedDetails></UserAddedDetails>
+          </PrivateRouteProvider>
+        ),
       },
       {
         path: "myList",

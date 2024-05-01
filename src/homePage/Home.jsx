@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import TypeWriter from "./TypeWriter";
 import Offers from "./Offers";
 import Draw from "./Draw";
+import AllSpots from "./AllSpots";
 
 const Home = () => {
 
@@ -21,6 +22,8 @@ const Home = () => {
           <TypeWriter></TypeWriter>
         </div>
       </div>
+
+      <AllSpots></AllSpots>
 
       <div className="my-10">
         <Offers></Offers>

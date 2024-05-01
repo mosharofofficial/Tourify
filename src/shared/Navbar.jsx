@@ -74,9 +74,12 @@ const Navbar = () => {
                 className="size-10 bg-yellow rounded-full border-2 border-black"
               />
             </a>
+              <span className="z-10">
             <Tooltip anchorSelect=".my-anchor-element" place="bottom">
-              {user.displayName}
+                {user.displayName}
+                {/* {console.log(user.email, user.displayName)} */}
             </Tooltip>
+              </span>
             <button className="button text-xl" onClick={handleLogout}>
               Logout
             </button>
