@@ -1,35 +1,34 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import { useLocation, useParams } from "react-router-dom";
 
 const Details = () => {
-
-  const { spotName: spotNameParam } = useParams();
-
-  const spotName = spotNameParam.split(":")[1];
-
   const [spotData, setSpotData] = useState({});
+
+  const { state } = useLocation();
+
+  const apiLink = state.api;
 
   const {
     image,
-    tourists_spot_name,
     country_Name,
     short_description,
+    tourists_spot_name,
     average_cost,
-    seasonality,
     travel_time,
+    seasonality,
     totalVisitorsPerYear,
     location,
   } = spotData;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/spots/${spotName}`)
+    fetch(apiLink)
       .then((res) => res.json())
       .then((data) => setSpotData(data));
   }, []);
 
   return (
     <div>
+      {console.log(apiLink)}
       <div className="bg-yellow p-5 my-6 rounded-xl">
         <img src={image} className="rounded-xl" />
         <div className="">
@@ -42,9 +41,7 @@ const Details = () => {
             {short_description}
           </p>
           <div className="font-bold text-lg">
-            <h3>
-              Country: {country_Name}
-            </h3>
+            <h3>Country: {country_Name}</h3>
             <h3>Location: {location}</h3>
             <h3>Seasonality: {seasonality}</h3>
             <h3>Travel Time: {travel_time}</h3>

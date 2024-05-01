@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 
 const UserAddedDetails = () => {
   const { spotName } = useParams();
+  console.log(spotName)
 
-  //   const spotName = spotNameParam.split(":")[1];
+    // const spotName = spotNameParam.split(":")[1];
 
   const [spotData, setSpotData] = useState({});
 

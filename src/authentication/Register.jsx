@@ -85,7 +85,7 @@ const Register = () => {
           <h1 className="text-center pb-5 text-3xl font-bold">Register</h1>
           <form onSubmit={handleSubmit} className="flex flex-col gap-1 ">
             <label className=" bg-black text-white font-bold input input-bordered flex items-center gap-2">
-              Name :
+              User Name :
               <input name="name" type="text" required className=" grow " />
             </label>
             <label className=" bg-black text-white font-bold input input-bordered flex items-center gap-2">

@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-const SpotCard = ({ spotData }) => {
+const SpotCard = ({ spotData, link }) => {
+  const navigate = useNavigate();
+
   const {
     tourists_spot_name,
     image,
@@ -13,7 +15,7 @@ const SpotCard = ({ spotData }) => {
 
   return (
     <div className="bg-yellow  border-2 border-black rounded-xl col-span-1 flex flex-col justify-between ">
-      {console.log(tourists_spot_name)}
+      {/* {console.log(tourists_spot_name)} */}
       <div>
         <h1 className="text-xl font-bold border-b-2 border-black p-2 ">
           {tourists_spot_name}
@@ -32,9 +34,16 @@ const SpotCard = ({ spotData }) => {
         </div>
       </div>
       <div className="p-2 self-center">
-        <Link to={`/details/:${tourists_spot_name}`}>
-          <button className="button ">View Details</button>
-        </Link>
+        {/* <Navigate to={`/details/:${tourists_spot_name}`}> */}
+        <button
+          onClick={() =>
+            navigate(`/details/:${tourists_spot_name}`, { state: { api: link } })
+          }
+          className="button "
+        >
+          View Details
+        </button>
+        {/* </Navigate> */}
       </div>
     </div>
   );
@@ -42,6 +51,7 @@ const SpotCard = ({ spotData }) => {
 
 SpotCard.propTypes = {
   spotData: PropTypes.object,
+  link: PropTypes.string,
 };
 
 export default SpotCard;

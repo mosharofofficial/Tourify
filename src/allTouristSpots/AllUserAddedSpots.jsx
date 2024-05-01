@@ -1,6 +1,6 @@
 // import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
-import UserAddedCard from "./userAddedCard";
+import SpotCard from "../shared/SpotCard";
 
 const AllUserAddedSpots = () => {
   const [allSpots, setAllSpots] = useState([]);
@@ -21,7 +21,11 @@ const AllUserAddedSpots = () => {
       </h1>
       <div className="grid gap-1 md:gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {allSpots.map((spotData) => (
-          <UserAddedCard key={spotData._id} spotData={spotData}></UserAddedCard>
+          <SpotCard
+            key={spotData._id}
+            link={`http://localhost:5000/userAdded/${spotData.tourists_spot_name}`}
+            spotData={spotData}
+          ></SpotCard>
           // console.log(spotData)
         ))}
       </div>

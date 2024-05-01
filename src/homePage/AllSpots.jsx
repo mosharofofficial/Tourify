@@ -21,7 +21,11 @@ const AllSpots = () => {
         </h1>
         <div className="grid gap-1 md:gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {allSpots.slice(0, 6).map((spotData) => (
-            <SpotCard key={spotData._id} spotData={spotData}></SpotCard>
+            <SpotCard
+              key={spotData._id}
+              link={`http://localhost:5000/spots/${spotData.tourists_spot_name}`}
+              spotData={spotData}
+            ></SpotCard>
           ))}
         </div>
       </div>

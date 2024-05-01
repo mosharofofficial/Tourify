@@ -12,7 +12,7 @@ import AddSpot from "./addTouristSpot/AddSpot.jsx";
 import PrivateRouteProvider from "./PrivateRoute/PrivateRouteProvider.jsx";
 import AllSpots from "./allTouristSpots/AllUserAddedSpots.jsx";
 import Details from "./allTouristSpots/Details.jsx";
-import UserAddedDetails from "./allTouristSpots/userAddedDetails.jsx";
+import MyList from "./myList/MyList.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -53,16 +53,10 @@ const routes = createBrowserRouter([
           </PrivateRouteProvider>
         ),
       },
-      {
-        path: "/userAdded/:spotName",
-        element: (
-          <PrivateRouteProvider>
-            <UserAddedDetails></UserAddedDetails>
-          </PrivateRouteProvider>
-        ),
-      },
+      
       {
         path: "myList",
+        element:<MyList></MyList>
       },
       {
         path: "update",
