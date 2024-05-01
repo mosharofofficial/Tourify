@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 // import SpotCard from "../shared/SpotCard";
 import { authContext } from "../authentication/AuthProvider";
 import Row from "./row";
-import { limit } from "firebase/firestore";
 
 const MyList = () => {
   const { user } = useContext(authContext);
@@ -10,7 +9,7 @@ const MyList = () => {
   //   console.log(email)
   const [myList, setMyList] = useState([]);
 
-  console.log(user?.email);
+  // console.log(user?.email);
 
   useEffect(() => {
     if (user) {
@@ -44,7 +43,10 @@ const MyList = () => {
 
             myList.map((data) => (
               <li key={data._id}>
-                <Row spotData={data}></Row>
+                <Row
+                  link={`http://localhost:5000/userAdded/${data.tourists_spot_name}`}
+                  spotData={data}
+                ></Row>
               </li>
             ))
           }

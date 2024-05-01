@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Details = () => {
   const [spotData, setSpotData] = useState({});
@@ -16,7 +16,7 @@ const Details = () => {
     average_cost,
     travel_time,
     seasonality,
-    totalVisitorsPerYear,
+    tota_visitors_per_year,
     location,
   } = spotData;
 
@@ -46,7 +46,7 @@ const Details = () => {
             <h3>Seasonality: {seasonality}</h3>
             <h3>Travel Time: {travel_time}</h3>
             <h3>Average Cost: {average_cost}</h3>
-            <h3>Visitors Per Year: {totalVisitorsPerYear}</h3>
+            <h3>Visitors Per Year: {tota_visitors_per_year}</h3>
           </div>
         </div>
       </div>

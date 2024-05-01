@@ -8,14 +8,13 @@ const SpotCard = ({ spotData, link }) => {
     tourists_spot_name,
     image,
     average_cost,
-    totalVisitorsPerYear,
+    tota_visitors_per_year,
     travel_time,
     seasonality,
   } = spotData;
 
   return (
     <div className="bg-yellow  border-2 border-black rounded-xl col-span-1 flex flex-col justify-between ">
-      {/* {console.log(tourists_spot_name)} */}
       <div>
         <h1 className="text-xl font-bold border-b-2 border-black p-2 ">
           {tourists_spot_name}
@@ -27,7 +26,7 @@ const SpotCard = ({ spotData, link }) => {
         <div className="p-2 border-t-2 border-black flex flex-col gap-2">
           <h3 className="font-bold text-lg">Average Cost: {average_cost}</h3>
           <h3 className="font-bold text-lg">
-            Visitors Per Year: {totalVisitorsPerYear}
+            Visitors Per Year: {tota_visitors_per_year}
           </h3>
           <h3 className="font-bold text-lg">Travel Time: {travel_time}</h3>
           <h3 className="font-bold text-lg">Seasonality: {seasonality}</h3>
@@ -37,7 +36,9 @@ const SpotCard = ({ spotData, link }) => {
         {/* <Navigate to={`/details/:${tourists_spot_name}`}> */}
         <button
           onClick={() =>
-            navigate(`/details/:${tourists_spot_name}`, { state: { api: link } })
+            navigate(`/details/:${tourists_spot_name}`, {
+              state: { api: link },
+            })
           }
           className="button "
         >
