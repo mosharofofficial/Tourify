@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 // import SpotCard from "../shared/SpotCard";
 import { authContext } from "../authentication/AuthProvider";
-import Row from "./row";
+import Row from "./Row";
 
 const MyList = () => {
   const { user } = useContext(authContext);
@@ -43,6 +43,7 @@ const MyList = () => {
 
             myList.map((data) => (
               <li key={data._id}>
+                {console.log(data.tourists_spot_name)}
                 <Row
                   link={`http://localhost:5000/userAdded/${data.tourists_spot_name}`}
                   spotData={data}

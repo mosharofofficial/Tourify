@@ -13,12 +13,30 @@ const AllUserAddedSpots = () => {
       .then((data) => setAllSpots(data));
   }, []);
 
+  const sortSpots = () => {
+    // allSpots.map((spot) => console.log(spot.average_cost));
+
+    const sorted = allSpots.toSorted((a, b) => {
+      const intA = parseInt(a.average_cost.split("$")[1]);
+      const intB = parseInt(b.average_cost.split("$")[1]);
+      return intA - intB;
+    });
+    setAllSpots(sorted);
+    // console.log("_____________");
+    // sorted.map((spot) => console.log(spot.average_cost));
+  };
+
   return (
     <div>
       {/* {console.log(allSpots)} */}
       <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold">
         All the tourist spots :{" "}
       </h1>
+
+      <button onClick={sortSpots} className="button mb-5 mx-auto ">
+        Sort by average cost
+      </button>
+      
       <div className="grid gap-1 md:gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {allSpots.map((spotData) => (
           <SpotCard

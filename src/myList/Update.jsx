@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const { state } = useLocation();
   // console.log(state.api);
+  
+  const navigate = useNavigate();
+  
   const api = state.api;
 
   const handleSubmit = (e) => {
@@ -17,7 +21,9 @@ const Update = () => {
     const country_Name = form.countryName.value;
     const location = form.location.value;
     const short_description = form.shortDescription.value;
-    const average_cost = form.averageCost.value;
+    const average_cost = form.averageCost.value.includes("$")
+      ? form.averageCost.value
+      : "$" + form.averageCost.value;
     const seasonality = form.seasonality.value;
     const travel_time = form.travelTime.value;
     const tota_visitors_per_year = form.visitorsPerYear.value;
@@ -32,13 +38,21 @@ const Update = () => {
       travel_time,
       tota_visitors_per_year,
     };
-    console.log(newSpot);
+    // console.log(newSpot);
 
     fetch(api, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newSpot),
-    });
+    }).then(res=>res.json()).then(data=>{
+      if (data.modifiedCount) {
+        Swal.fire({
+          title: "Updated!",
+          text: "Successfully updated spot data!",
+          icon: "success",
+        });
+      }
+    }).then(()=>navigate('/myList'));
   };
 
   return (
@@ -62,6 +76,7 @@ const Update = () => {
             name="spotName"
             type="text"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            required
           />
         </label>
         <label className="sm:bg-black sm:text-white sm:items-center   font-bold input sm:input-bordered h-auto flex items-start py-1 flex-col sm:flex-row bg-transparent">
@@ -94,6 +109,7 @@ const Update = () => {
             name="averageCost"
             type="text"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            required
           />
         </label>
         <label className="sm:bg-black sm:text-white sm:items-center   font-bold input sm:input-bordered h-auto flex items-start py-1 flex-col sm:flex-row bg-transparent">

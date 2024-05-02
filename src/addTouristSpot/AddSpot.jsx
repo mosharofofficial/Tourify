@@ -1,8 +1,9 @@
-// import { useContext } from "react";
-// import { authContext } from "../authentication/AuthProvider";
+import { useContext } from "react";
+import { authContext } from "../authentication/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddSpot = () => {
-  // const { user } = useContext(authContext);
+  const { user } = useContext(authContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +16,14 @@ const AddSpot = () => {
     const country_Name = form.countryName.value;
     const location = form.location.value;
     const short_description = form.shortDescription.value;
-    const average_cost = form.averageCost.value;
+    const average_cost = form.averageCost.value.includes("$")
+      ? form.averageCost.value
+      : "$" + form.averageCost.value;
     const seasonality = form.seasonality.value;
     const travel_time = form.travelTime.value;
     const tota_visitors_per_year = form.visitorsPerYear.value;
-    const user_email = form.email.value;
-    const user_name = form.name.value;
+    const user_email = form.email.value || user.email;
+    const user_name = form.name.value || user.displayName;
 
     const newSpot = {
       image,
@@ -45,7 +48,15 @@ const AddSpot = () => {
       body: JSON.stringify(newSpot),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Added!",
+            text: "successfully added new spot!",
+            icon: "success",
+          });
+        }
+      })
       .catch((e) => console.log(e.message));
   };
 
@@ -70,6 +81,7 @@ const AddSpot = () => {
             name="spotName"
             type="text"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            required
           />
         </label>
         <label className="sm:bg-black sm:text-white sm:items-center   font-bold input sm:input-bordered h-auto flex items-start py-1 flex-col sm:flex-row bg-transparent">
@@ -102,6 +114,7 @@ const AddSpot = () => {
             name="averageCost"
             type="text"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            required
           />
         </label>
         <label className="sm:bg-black sm:text-white sm:items-center   font-bold input sm:input-bordered h-auto flex items-start py-1 flex-col sm:flex-row bg-transparent">
@@ -134,6 +147,7 @@ const AddSpot = () => {
             name="email"
             type="email"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            placeholder={user.email}
           />
         </label>
         <label className="sm:bg-black sm:text-white sm:items-center   font-bold input sm:input-bordered h-auto flex items-start py-1 flex-col sm:flex-row bg-transparent">
@@ -142,6 +156,7 @@ const AddSpot = () => {
             name="name"
             type="text"
             className=" grow rounded-[5px] w-full sm:w-auto text-white pl-1"
+            placeholder={user.displayName}
           />
         </label>
 

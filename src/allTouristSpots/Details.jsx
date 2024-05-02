@@ -29,8 +29,8 @@ const Details = () => {
   return (
     <div>
       {console.log(apiLink)}
-      <div className="bg-yellow p-5 my-6 rounded-xl">
-        <img src={image} className="rounded-xl" />
+      <div className="bg-yellow p-5 my-6 rounded-xl max-w-[800px] mx-auto">
+        <img src={image} className="rounded-xl max-w-[700px] mx-auto" />
         <div className="">
           <h1 className="border-y-2 border-black my-2 py-2 text-3xl font-bold">
             {tourists_spot_name}

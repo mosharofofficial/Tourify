@@ -65,7 +65,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "update",
-        element: <Update></Update>,
+        element: (
+          <PrivateRouteProvider>
+            <Update></Update>
+          </PrivateRouteProvider>
+        ),
       },
     ],
   },

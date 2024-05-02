@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Row = ({ spotData, link }) => {
   const { tourists_spot_name, average_cost, travel_time, seasonality } =
@@ -8,13 +9,48 @@ const Row = ({ spotData, link }) => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    fetch(link, {
-      method: "DELETE",
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => data.deletedCount && location.reload());
+    .then((result) => {
+      if (result.isConfirmed) {
+        fetch(link, {
+          method: "DELETE",
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Spot data has been deleted.",
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "OK",
+              })
+              .then((result) =>{
+                if (result.isConfirmed) {
+                  location.reload();
+                }
+              });
+            }
+          });
+      }
+    });
+    // fetch(link, {
+    //   method: "DELETE",
+    // }).then((res) => {
+    //   return res.json();
+    // });
+    // .then((data) => data.deletedCount && location.reload());
   };
 
   return (
