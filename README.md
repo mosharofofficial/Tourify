@@ -21,3 +21,9 @@ This website was made using :
 - react router
 - mongoDB
 - express js 
+- react-icons
+- firebase 
+- react-simple-typewrite
+- react toastify
+- sweetalert2
+- swiper
