@@ -14,6 +14,7 @@ import AllSpots from "./allTouristSpots/AllUserAddedSpots.jsx";
 import Details from "./allTouristSpots/Details.jsx";
 import MyList from "./myList/MyList.jsx";
 import Update from "./myList/Update.jsx";
+import CountrySpots from './homePage/CoutrySpots.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ const routes = createBrowserRouter([
             <Update></Update>
           </PrivateRouteProvider>
         ),
+      },
+      {
+        path: "country/:countryName",
+        element: <CountrySpots></CountrySpots>
       },
     ],
   },

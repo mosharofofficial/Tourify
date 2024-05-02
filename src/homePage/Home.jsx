@@ -4,6 +4,7 @@ import TypeWriter from "./TypeWriter";
 import Offers from "./Offers";
 import Draw from "./Draw";
 import AllSpots from "./AllSpots";
+import Countries from "./Countries";
 
 const Home = () => {
 
@@ -24,6 +25,8 @@ const Home = () => {
       </div>
 
       <AllSpots></AllSpots>
+
+      <Countries></Countries>
 
       <div className="my-10">
         <Offers></Offers>

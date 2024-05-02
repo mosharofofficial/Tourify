@@ -32,15 +32,7 @@ const MyList = () => {
             <h3 className="flex-1 text-center">Seasonality</h3>
             <h3 className="flex-1 text-center">Actions</h3>
           </li>
-          {
-            // myList.map((spotData) => (
-            //   <SpotCard
-            //     key={spotData._id}
-            //     link={`http://localhost:5000/userAdded/${spotData.tourists_spot_name}`}
-            //     spotData={spotData}
-            //   ></SpotCard>
-            // ))
-
+          {myList.length ? (
             myList.map((data) => (
               <li key={data._id}>
                 {console.log(data.tourists_spot_name)}
@@ -50,7 +42,15 @@ const MyList = () => {
                 ></Row>
               </li>
             ))
-          }
+          ) : (
+            <li>
+              <div className="h-[100px] flex items-center justify-center gap-2 ">
+                <span className="loading loading-infinity loading-lg"></span>
+                <span className="loading loading-infinity loading-lg"></span>
+                <span className="loading loading-infinity loading-lg"></span>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
     </div>

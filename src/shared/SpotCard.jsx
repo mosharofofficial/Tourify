@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SpotCard = ({ spotData, link }) => {
   const navigate = useNavigate();
@@ -11,6 +11,9 @@ const SpotCard = ({ spotData, link }) => {
     tota_visitors_per_year,
     travel_time,
     seasonality,
+    country_Name,
+    location,
+    short_description,
   } = spotData;
 
   return (
@@ -24,11 +27,14 @@ const SpotCard = ({ spotData, link }) => {
           className="self-center h-[250px] p-2 mx-auto object-cover object-center rounded-2xl"
         />
         <div className="p-2 border-t-2 border-black flex flex-col gap-2">
+          <h3 className="font-bold text-lg">Country Name : {country_Name}</h3>
+          <h3 className="font-bold text-lg">Location: {location}</h3>
+          <p className="border-y-2 py-1 border-black font-bold text-sm">
+            Short Description:{" "}
+            {short_description.split(" ").slice(0, 16).join(" ")}{" "}
+            <span className="text-lg">...</span>
+          </p>
           <h3 className="font-bold text-lg">Average Cost: {average_cost}</h3>
-          <h3 className="font-bold text-lg">
-            Visitors Per Year: {tota_visitors_per_year}
-          </h3>
-          <h3 className="font-bold text-lg">Travel Time: {travel_time}</h3>
           <h3 className="font-bold text-lg">Seasonality: {seasonality}</h3>
         </div>
       </div>

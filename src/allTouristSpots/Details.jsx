@@ -28,7 +28,7 @@ const Details = () => {
 
   return (
     <div>
-      {console.log(apiLink)}
+      {/* {console.log(apiLink)} */}
       <div className="bg-yellow p-5 my-6 rounded-xl max-w-[800px] mx-auto">
         <img src={image} className="rounded-xl max-w-[700px] mx-auto" />
         <div className="">
