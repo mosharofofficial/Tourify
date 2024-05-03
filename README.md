@@ -1,5 +1,5 @@
 # Tourify
-## Live site : 
+## Live site : https://assignment-10-76819.web.app/
 ---
 
 ## Selected Catagory : B9 A10 Type-01 
@@ -7,7 +7,7 @@
 
 ### Features of this website  : 
 
-- it is tourism management website 
+- dark and light mode controll
 - responsive for mobile , tablet and desktop
 - user can perform CRUD  operations
 - there is a backend 
