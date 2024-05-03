@@ -72,7 +72,7 @@ const Login = () => {
           userList: [],
         };
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://a10-server-ten.vercel.app/users`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -103,7 +103,7 @@ const Login = () => {
           userList: [],
         };
 
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://a10-server-ten.vercel.app/users`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

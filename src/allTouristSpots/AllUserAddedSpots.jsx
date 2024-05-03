@@ -8,7 +8,7 @@ const AllUserAddedSpots = () => {
   // const allSpots = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userAdded`)
+    fetch(`https://a10-server-ten.vercel.app/userAdded`)
       .then((res) => res.json())
       .then((data) => setAllSpots(data));
   }, []);
@@ -30,7 +30,7 @@ const AllUserAddedSpots = () => {
     <div>
       {/* {console.log(allSpots)} */}
       <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold">
-        Tourist spots added by users :{" "}
+        All Tourist spots :{" "}
       </h1>
 
       <button onClick={sortSpots} className="button mb-5 mx-auto ">
@@ -42,7 +42,7 @@ const AllUserAddedSpots = () => {
           allSpots.map((spotData) => (
             <SpotCard
               key={spotData._id}
-              link={`http://localhost:5000/userAdded/${spotData.tourists_spot_name}`}
+              link={`https://a10-server-ten.vercel.app/userAdded/${spotData.tourists_spot_name}`}
               spotData={spotData}
             ></SpotCard>
             // console.log(spotData)

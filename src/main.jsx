@@ -14,7 +14,7 @@ import AllSpots from "./allTouristSpots/AllUserAddedSpots.jsx";
 import Details from "./allTouristSpots/Details.jsx";
 import MyList from "./myList/MyList.jsx";
 import Update from "./myList/Update.jsx";
-import CountrySpots from './homePage/CoutrySpots.jsx'
+import CountrySpots from "./homePage/CoutrySpots.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -45,7 +45,7 @@ const routes = createBrowserRouter([
       {
         path: "/allSpots",
         element: <AllSpots></AllSpots>,
-        // loader: () => fetch("http://localhost:5000/spots"),
+        // loader: () => fetch("https://a10-server-ten.vercel.app/spots"),
       },
       {
         path: "/details/:spotName",
@@ -74,7 +74,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "country/:countryName",
-        element: <CountrySpots></CountrySpots>
+        element: <CountrySpots></CountrySpots>,
       },
     ],
   },

@@ -17,12 +17,14 @@ const Row = ({ spotData, link }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    })
-    .then((result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        fetch(link, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://a10-server-ten.vercel.app/userAdded/${tourists_spot_name}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => {
             return res.json();
           })
@@ -35,8 +37,7 @@ const Row = ({ spotData, link }) => {
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "OK",
-              })
-              .then((result) =>{
+              }).then((result) => {
                 if (result.isConfirmed) {
                   location.reload();
                 }

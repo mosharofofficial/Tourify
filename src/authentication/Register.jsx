@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
-  const {user, register, update } = useContext(authContext);
+  const { user, register, update } = useContext(authContext);
 
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const Register = () => {
                 userList: [],
               };
 
-              fetch(`http://localhost:5000/users`, {
+              fetch(`https://a10-server-ten.vercel.app/users`, {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",

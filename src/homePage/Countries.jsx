@@ -8,7 +8,7 @@ const Countries = () => {
   // const countries = useLoaderData();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/countries`)
+    fetch(`https://a10-server-ten.vercel.app/countries`)
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
@@ -21,12 +21,14 @@ const Countries = () => {
       <div className="grid gap-1 md:gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {}
         {countries.length ? (
-          countries.map((country) =>
-            <CountryCard
-              key={country._id}
-            //   link={`http://localhost:5000/countries/${country.country_Name}`}
-              country={country}
-            ></CountryCard>
+          countries.map(
+            (country) => (
+              <CountryCard
+                key={country._id}
+                //   link={`https://a10-server-ten.vercel.app/countries/${country.country_Name}`}
+                country={country}
+              ></CountryCard>
+            )
             // console.log(country.country_name)
           )
         ) : (

@@ -40,7 +40,7 @@ const AddSpot = () => {
     };
     console.log(newSpot);
 
-    fetch(`http://localhost:5000/userAdded`, {
+    fetch(`https://a10-server-ten.vercel.app/userAdded`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

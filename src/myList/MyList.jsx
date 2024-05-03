@@ -13,7 +13,9 @@ const MyList = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/userAdded/user/${user.displayName}`)
+      fetch(
+        `https://a10-server-ten.vercel.app/userAdded/user/${user.displayName}`
+      )
         .then((res) => res.json())
         .then((data) => setMyList(data));
     }
@@ -32,25 +34,28 @@ const MyList = () => {
             <h3 className="flex-1 text-center">Seasonality</h3>
             <h3 className="flex-1 text-center">Actions</h3>
           </li>
-          {myList.length ? (
+          {
+            // myList.length ?
             myList.map((data) => (
               <li key={data._id}>
                 {console.log(data.tourists_spot_name)}
                 <Row
-                  link={`http://localhost:5000/userAdded/${data.tourists_spot_name}`}
+                  link={`https://a10-server-ten.vercel.app/userAdded/${data.tourists_spot_name}`}
                   spotData={data}
                 ></Row>
               </li>
             ))
-          ) : (
-            <li>
-              <div className="h-[100px] flex items-center justify-center gap-2 ">
-                <span className="loading loading-infinity loading-lg"></span>
-                <span className="loading loading-infinity loading-lg"></span>
-                <span className="loading loading-infinity loading-lg"></span>
-              </div>
-            </li>
-          )}
+            // :
+            // (
+            //   <li>
+            //     <div className="h-[100px] flex items-center justify-center gap-2 ">
+            //       <span className="loading loading-infinity loading-lg"></span>
+            //       <span className="loading loading-infinity loading-lg"></span>
+            //       <span className="loading loading-infinity loading-lg"></span>
+            //     </div>
+            //   </li>
+            // )
+          }
         </ul>
       </div>
     </div>

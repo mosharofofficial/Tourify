@@ -1,7 +1,8 @@
-import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
-const SpotCard = ({ spotData }) => {
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+
+const CountrySpotCard = ({ spotData }) => {
   const navigate = useNavigate();
 
   const {
@@ -27,23 +28,23 @@ const SpotCard = ({ spotData }) => {
           className="self-center h-[250px] p-2 mx-auto object-cover object-center rounded-2xl"
         />
         <div className="p-2 border-t-2 border-black flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Average Cost : {average_cost}</h3>
-          <h3 className="font-bold text-lg">Visitors Per Year: {tota_visitors_per_year}</h3>
-          <h3 className="font-bold text-lg">Travel Time: {travel_time}</h3>
-          {/* <p className="border-y-2 py-1 border-black font-bold text-sm">
-            Short Description:{" "}
+          <h3 className="font-bold text-lg">Country : {country_Name}</h3>
+          <h3 className="font-bold text-lg">
+            Location : {location}
+          </h3>
+          <p className="border-y-2 py-1 border-black font-bold text-sm">
+            Short Description :{" "}
             {short_description.split(" ").slice(0, 16).join(" ")}{" "}
             <span className="text-lg">...</span>
-          </p> */}
-          <h3 className="font-bold text-lg">Seasonality: {seasonality}</h3>
+          </p>
+          <h3 className="font-bold text-lg">Average Cost : {average_cost}</h3>
+          <h3 className="font-bold text-lg">Seasonality : {seasonality}</h3>
         </div>
       </div>
       <div className="p-2 self-center">
         {/* <Navigate to={`/details/:${tourists_spot_name}`}> */}
         <button
-          onClick={() =>
-            navigate(`/details/${tourists_spot_name}`)
-          }
+          onClick={() => navigate(`/details/${tourists_spot_name}`)}
           className="button "
         >
           View Details
@@ -54,9 +55,8 @@ const SpotCard = ({ spotData }) => {
   );
 };
 
-SpotCard.propTypes = {
+CountrySpotCard.propTypes = {
   spotData: PropTypes.object,
-  link: PropTypes.string,
 };
 
-export default SpotCard;
+export default CountrySpotCard;

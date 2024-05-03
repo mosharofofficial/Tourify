@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 
 const UserAddedDetails = () => {
   const { spotName } = useParams();
-  console.log(spotName)
+  console.log(spotName);
 
-    // const spotName = spotNameParam.split(":")[1];
+  // const spotName = spotNameParam.split(":")[1];
 
   const [spotData, setSpotData] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userAdded/${spotName}`)
+    fetch(`https://a10-server-ten.vercel.app/userAdded/${spotName}`)
       .then((res) => res.json())
       .then((data) => setSpotData(data));
   }, []);

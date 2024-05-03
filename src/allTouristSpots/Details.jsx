@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Details = () => {
   const [spotData, setSpotData] = useState({});
 
-  const { state } = useLocation();
+  const params = useParams();
 
-  const apiLink = state.api;
+  // console.log(params);
+  // console.log(state);
+  // const apiLink = state.api;
 
   const {
     image,
@@ -21,7 +23,7 @@ const Details = () => {
   } = spotData;
 
   useEffect(() => {
-    fetch(apiLink)
+    fetch(`https://a10-server-ten.vercel.app/spots/${params.spotName}`)
       .then((res) => res.json())
       .then((data) => setSpotData(data));
   }, []);
@@ -30,7 +32,7 @@ const Details = () => {
     <div>
       {/* {console.log(apiLink)} */}
       <div className="bg-yellow p-5 my-6 rounded-xl max-w-[800px] mx-auto">
-        <img src={image} className="rounded-xl max-w-[700px] mx-auto" />
+        <img src={image} className="rounded-xl w-full max-w-[700px] mx-auto" />
         <div className="">
           <h1 className="border-y-2 border-black my-2 py-2 text-3xl font-bold">
             {tourists_spot_name}
