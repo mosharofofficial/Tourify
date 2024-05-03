@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Banner from "./Banner";
 import TypeWriter from "./TypeWriter";
 import Offers from "./Offers";
@@ -6,12 +6,19 @@ import Draw from "./Draw";
 import AllSpots from "./AllSpots";
 import Countries from "./Countries";
 import ThemeController from "./ThemeController";
+import { themeContext } from "../App";
 
 const Home = () => {
 
-    useEffect(()=>{
-        
-    },[])
+  const {isDark} = useContext(themeContext);
+
+     useEffect(() => {
+  const switchElement = document.getElementById("switchElement");
+
+       if (isDark && !switchElement.classList.contains("dark")) {
+         switchElement.classList.add("dark");
+       }
+     }, []);
     
   return (
     <div className="mt-5 ">

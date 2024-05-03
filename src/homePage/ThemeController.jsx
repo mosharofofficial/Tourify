@@ -12,6 +12,13 @@ const ThemeController = () => {
   useEffect(() => {
     if (isDark && !switchElement.classList.contains("dark")) {
       switchElement.classList.add("dark");
+    
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isDark && !switchElement.classList.contains("dark")) {
+      switchElement.classList.add("dark");
     } else {
       switchElement.classList.contains("dark") &&
         switchElement.classList.remove("dark");
