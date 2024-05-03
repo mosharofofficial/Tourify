@@ -5,6 +5,7 @@ import Offers from "./Offers";
 import Draw from "./Draw";
 import AllSpots from "./AllSpots";
 import Countries from "./Countries";
+import ThemeController from "./ThemeController";
 
 const Home = () => {
 
@@ -14,7 +15,9 @@ const Home = () => {
     
   return (
     <div className="mt-5 ">
-      <div className=" relative max-h-[60vh]">
+        <ThemeController></ThemeController>
+      <div className=" relative max-h-[60vh] ">
+
         <Banner></Banner>
         <h2 className="bannerTitle font-bold text-4xl sm:text-5xl lg:text-6xl absolute top-[50%] lg:top-[45%] left-[calc(50%-60px)] sm:left-[calc(50%-80px)] md:left-[calc(50%-60px)] lg:left-[calc(50%-99px)] z-[5] text-yellow ">
           Tourify

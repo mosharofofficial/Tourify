@@ -12,7 +12,7 @@ const PrivateRouteProvider = ({ children }) => {
 
     if(loading){
       return (
-        <div className="flex items-center justify-center h-[500px]">
+        <div className="flex items-center justify-center h-[500px]  dark:text-yellow">
           <span className="loading loading-infinity loading-lg"></span>
           <span className="loading loading-infinity loading-lg"></span>
           <span className="loading loading-infinity loading-lg"></span>

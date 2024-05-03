@@ -15,7 +15,7 @@ const Countries = () => {
 
   return (
     <div className="my-14">
-      <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold">
+      <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold dark:text-yellow">
         Countries :{" "}
       </h1>
       <div className="grid gap-1 md:gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -32,7 +32,7 @@ const Countries = () => {
             // console.log(country.country_name)
           )
         ) : (
-          <div className="h-[500px] flex items-center justify-center gap-2 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
+          <div className="h-[500px] flex items-center justify-center gap-2 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 dark:text-yellow">
             {/* <div className=" flex items-center justify-center gap-2"> */}
 
             <span className="loading loading-infinity loading-lg"></span>

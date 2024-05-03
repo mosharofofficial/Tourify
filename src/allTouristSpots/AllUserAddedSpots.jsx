@@ -29,11 +29,14 @@ const AllUserAddedSpots = () => {
   return (
     <div>
       {/* {console.log(allSpots)} */}
-      <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold">
+      <h1 className="text-center mt-6 mb-4 text-3xl md:text-4xl font-bold dark:text-yellow">
         All Tourist spots :{" "}
       </h1>
 
-      <button onClick={sortSpots} className="button mb-5 mx-auto ">
+      <button
+        onClick={sortSpots}
+        className="button mb-5 mx-auto  dark:text-yellow  dark:border-yellow dark:active:bg-yellow dark:active:text-black"
+      >
         Sort by average cost
       </button>
 
@@ -48,7 +51,7 @@ const AllUserAddedSpots = () => {
             // console.log(spotData)
           ))
         ) : (
-          <div className="h-[500px] flex items-center justify-center gap-2 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
+          <div className="h-[500px] flex items-center justify-center gap-2 col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4 dark:text-yellow">
             <span className="loading loading-infinity loading-lg"></span>
             <span className="loading loading-infinity loading-lg"></span>
             <span className="loading loading-infinity loading-lg"></span>
