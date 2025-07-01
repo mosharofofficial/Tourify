@@ -2,9 +2,6 @@
 ## Live site : https://assignment-10-76819.web.app/
 ---
 
-## Selected Catagory : B9 A10 Type-01 
-
-
 ### Features of this website  : 
 
 - dark and light mode controll
