@@ -7,8 +7,7 @@
 - dark and light mode controll
 - responsive for mobile , tablet and desktop
 - user can perform CRUD  operations
-- there is a backend 
-- it has authentication
+- has authentication
 
 ---
 This website was made using :
